@@ -2,6 +2,11 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * A framework for storing lists of words and retrieving words based on length
+ * @author Jacob
+ *
+ */
 public class WordBank {
 
 	private ArrayList<String> threeLetters;
@@ -23,6 +28,7 @@ public class WordBank {
 		ArrayList<String> sevenLetters = new ArrayList<>();
 		ArrayList<String> eightLetters = new ArrayList<>();
 		
+		// Some stock words to begin with; requires expansion or loading from a file
 		threeLetters.add("cat");
 		fourLetters.add("frog");
 		fiveLetters.add("house");
@@ -31,6 +37,11 @@ public class WordBank {
 		eightLetters.add("shoelace");
 	}
 	
+	/**
+	 * Gets a random word of specified length
+	 * @param numLetters the number of letters in the desired word
+	 * @return a word with number of letters numLetters
+	 */
 	public String getNewWord(int numLetters)
 	{
 		if (numLetters == 3)
@@ -48,35 +59,4 @@ public class WordBank {
 		else
 			return "";
 	}
-	
-	public String get3word()
-	{
-		return threeLetters.get(ran.nextInt(threeLetters.size()));
-	}
-	
-	public String get4word()
-	{
-		return fourLetters.get(ran.nextInt(fourLetters.size()));
-	}
-	
-	public String get5word()
-	{
-		return fiveLetters.get(ran.nextInt(fiveLetters.size()));
-	}
-	
-	public String get6word()
-	{
-		return sixLetters.get(ran.nextInt(sixLetters.size()));
-	}
-	
-	public String get7word()
-	{
-		return sevenLetters.get(ran.nextInt(sevenLetters.size()));
-	}
-	
-	public String get8word()
-	{
-		return eightLetters.get(ran.nextInt(eightLetters.size()));
-	}
-	
 }
