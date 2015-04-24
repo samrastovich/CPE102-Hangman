@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -118,6 +119,7 @@ public class MainWindow extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new MainWindow("cat");
+		WordBank wordBank = new WordBank();
+		new MainWindow(wordBank.getNewWord(3));
 	}
 }
