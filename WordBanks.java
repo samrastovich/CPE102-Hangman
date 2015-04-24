@@ -15,21 +15,26 @@ public class WordBank {
 	private ArrayList<String> sixLetters;
 	private ArrayList<String> sevenLetters;
 	private ArrayList<String> eightLetters;
-	private Random ran;
+	private Random rand;
 	
 	public WordBank()
 	{
-		Random ran = new Random();
+		rand = new Random(647);
 		
-		ArrayList<String> threeLetters = new ArrayList<>();
-		ArrayList<String> fourLetters = new ArrayList<>();
-		ArrayList<String> fiveLetters = new ArrayList<>();
-		ArrayList<String> sixLetters = new ArrayList<>();
-		ArrayList<String> sevenLetters = new ArrayList<>();
-		ArrayList<String> eightLetters = new ArrayList<>();
+		threeLetters = new ArrayList<String>();
+		fourLetters = new ArrayList<String>();
+		fiveLetters = new ArrayList<String>();
+		sixLetters = new ArrayList<String>();
+		sevenLetters = new ArrayList<String>();
+		eightLetters = new ArrayList<String>();
 		
 		// Some stock words to begin with; requires expansion or loading from a file
 		threeLetters.add("cat");
+		threeLetters.add("dog");
+		threeLetters.add("toe");
+		threeLetters.add("tap");
+		threeLetters.add("bow");
+		threeLetters.add("you");
 		fourLetters.add("frog");
 		fiveLetters.add("house");
 		sixLetters.add("jacket");
@@ -45,17 +50,17 @@ public class WordBank {
 	public String getNewWord(int numLetters)
 	{
 		if (numLetters == 3)
-			return threeLetters.get(ran.nextInt(threeLetters.size()));
-		if (numLetters == 4)
-			return fourLetters.get(ran.nextInt(fourLetters.size()));
-		if (numLetters == 5)
-			return fiveLetters.get(ran.nextInt(fiveLetters.size()));
-		if (numLetters == 6)
-			return sixLetters.get(ran.nextInt(sixLetters.size()));
-		if (numLetters == 7)
-			return sevenLetters.get(ran.nextInt(sevenLetters.size()));
-		if (numLetters == 8)
-			return eightLetters.get(ran.nextInt(eightLetters.size()));
+			return threeLetters.get(rand.nextInt(threeLetters.size()));
+		else if (numLetters == 4)
+			return fourLetters.get(rand.nextInt(fourLetters.size()));
+		else if (numLetters == 5)
+			return fiveLetters.get(rand.nextInt(fiveLetters.size()));
+		else if (numLetters == 6)
+			return sixLetters.get(rand.nextInt(sixLetters.size()));
+		else if (numLetters == 7)
+			return sevenLetters.get(rand.nextInt(sevenLetters.size()));
+		else if (numLetters == 8)
+			return eightLetters.get(rand.nextInt(eightLetters.size()));
 		else
 			return "";
 	}
