@@ -16,7 +16,7 @@ public class HangmanFigure extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.ORANGE);
 		
 		// base
 		if(guesses > 0) {
@@ -37,6 +37,8 @@ public class HangmanFigure extends JPanel {
 		if(guesses > 3) {
 			g.drawLine(150, 1, 150, 70);
 		}
+		
+		g.setColor(Color.BLUE);
 		
 		// face
 		if(guesses > 4) {
