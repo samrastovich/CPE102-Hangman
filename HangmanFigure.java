@@ -1,12 +1,17 @@
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
 
 public class HangmanFigure extends JPanel {
 	
 	private int guesses;
+	
 
 	public HangmanFigure() {
 		super();
@@ -20,22 +25,27 @@ public class HangmanFigure extends JPanel {
 		
 		// base
 		if(guesses > 0) {
-			g.drawLine(1, 299, 299, 299);
+			g.drawRect(100, 285, 195, 10);
+			g.fillRect(100, 285, 195, 10);
 		}
 		
 		// right wall
 		if(guesses > 1) {
-			g.drawLine(299, 299, 299, 1);
+			g.drawRect(285, 5, 5, 290);
+			g.fillRect(285, 5, 5, 290);
 		}
 		
 		// top line
 		if(guesses > 2) {
-			g.drawLine(150, 1, 299, 1);
+			g.drawRect(145, 5, 140, 5);
+			g.fillRect(145, 5, 140, 5);
 		}
 		
+		g.setColor(Color.DARK_GRAY);
 		// hanging line
 		if(guesses > 3) {
-			g.drawLine(150, 1, 150, 70);
+			g.drawRect(149, 5, 3, 65);
+			g.fillRect(149, 5, 3, 65);
 		}
 		
 		g.setColor(Color.BLUE);
@@ -75,5 +85,4 @@ public class HangmanFigure extends JPanel {
 		guesses++;
 		paintComponent(getGraphics());
 	}
-	
 }
