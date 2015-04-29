@@ -15,10 +15,12 @@ public class MainWindow extends JFrame {
 	private String wrongGuesses;
 	private String word;
 	private String visible;
+	private String lettersRemaining;
 
 	public MainWindow(String toGuess) {
 		remainingGuesses = 10;
 		wrongGuesses = "";
+		lettersRemaining = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
 		word = toGuess;
 
 		visible = "";
@@ -26,7 +28,7 @@ public class MainWindow extends JFrame {
 		for(int i = 0; i < word.length(); ++i) {
 			visible += "_ ";
 		}
-
+		
 		JPanel corePanel = new JPanel();
 		corePanel.setLayout(new BorderLayout());
 		
@@ -62,6 +64,12 @@ public class MainWindow extends JFrame {
 					for(int i = 0; i < word.length(); ++i) {
 						if(text.charAt(0) == word.charAt(i)) {
 							guessFound = true;
+							
+							lettersRemaining.replace(text.charAt(0), " ");
+							
+							
+							public String replace(char oldChar,
+             char newChar)
 							
 							String newVisible = "";
 							for(int j = 0; j < visible.length(); ++j) {
