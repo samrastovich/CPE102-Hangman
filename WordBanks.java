@@ -56,7 +56,11 @@ public class WordBank {
 		else
 			return "";
 	}
-	
+	/**
+	 * Framework to pull words from file
+	 * @param input the name of the file to load from
+	 * @throws FileNotFoundException
+	 */
 	public void loadWords(String input) throws FileNotFoundException
 	{
 		File inputFile = new File(input);
@@ -67,7 +71,10 @@ public class WordBank {
 		
 		in.close();		
 	}
-	
+	/**
+	 * Loads a word into the word banks. Automatically sorts by word length
+	 * @param word the word to load
+	 */
 	public void storeWord(String word)
 	{
 		int length = word.length();
