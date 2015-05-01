@@ -36,10 +36,35 @@ public class WordBank {
 		threeLetters.add("bow");
 		threeLetters.add("you");
 		fourLetters.add("frog");
-		fiveLetters.add("house");
+		fourLetters.add("card");
+		fourLetters.add("tape");
+		fourLetters.add("ball");
+		fourLetters.add("high");
+		fourLetters.add("loud");
+		fiveLetters.add("oxide");
+		fiveLetters.add("knife");
+		fiveLetters.add("crazy");
+		fiveLetters.add("whale");
+		fiveLetters.add("watch");
+		fiveLetters.add("chair");
 		sixLetters.add("jacket");
+		sixLetters.add("gopher");
+		sixLetters.add("shroud");
+		sixLetters.add("bucket");
+		sixLetters.add("window");
+		sixLetters.add("finger");
 		sevenLetters.add("speaker");
+		sevenLetters.add("picture");
+		sevenLetters.add("platter");
+		sevenLetters.add("sweater");
+		sevenLetters.add("handbag");
+		sevenLetters.add("skyfall");
+		eightLetters.add("trousers");
+		eightLetters.add("envelope");
+		eightLetters.add("computer");
+		eightLetters.add("cylinder");
 		eightLetters.add("shoelace");
+		eightLetters.add("mechanic");
 	}
 	
 	/**
