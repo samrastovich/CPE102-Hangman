@@ -1,6 +1,9 @@
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * A framework for storing lists of words and retrieving words based on length
@@ -19,7 +22,7 @@ public class WordBank {
 	
 	public WordBank()
 	{
-		rand = new Random(647);
+		rand = new Random();
 		
 		threeLetters = new ArrayList<String>();
 		fourLetters = new ArrayList<String>();
@@ -36,10 +39,37 @@ public class WordBank {
 		threeLetters.add("bow");
 		threeLetters.add("you");
 		fourLetters.add("frog");
-		fiveLetters.add("house");
+		fourLetters.add("card");
+		fourLetters.add("tape");
+		fourLetters.add("ball");
+		fourLetters.add("high");
+		fourLetters.add("loud");
+		fiveLetters.add("oxide");
+		fiveLetters.add("knife");
+		fiveLetters.add("crazy");
+		fiveLetters.add("whale");
+		fiveLetters.add("watch");
+		fiveLetters.add("chair");
 		sixLetters.add("jacket");
+		sixLetters.add("gopher");
+		sixLetters.add("shroud");
+		sixLetters.add("bucket");
+		sixLetters.add("window");
+		sixLetters.add("finger");
 		sevenLetters.add("speaker");
+		sevenLetters.add("picture");
+		sevenLetters.add("platter");
+		sevenLetters.add("sweater");
+		sevenLetters.add("handbag");
+		sevenLetters.add("skyfall");
+		eightLetters.add("trousers");
+		eightLetters.add("envelope");
+		eightLetters.add("computer");
+		eightLetters.add("cylinder");
 		eightLetters.add("shoelace");
+		eightLetters.add("mechanic");
+		
+//		loadWords("wordlists.txt");
 	}
 	
 	/**
@@ -63,5 +93,18 @@ public class WordBank {
 			return eightLetters.get(rand.nextInt(eightLetters.size()));
 		else
 			return "";
+	}
+	
+	public void loadWords(String input) throws FileNotFoundException
+	{
+		File inputFile = new File(input);
+		Scanner in = new Scanner(inputFile);
+		String tmp;
+		
+		while ( in.hasNext() )
+		{
+			tmp = in.next();
+		}
+		
 	}
 }
