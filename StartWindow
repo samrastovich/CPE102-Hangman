@@ -74,17 +74,22 @@ public class StartWindow extends JFrame {
 		
 		this.pack();
 		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		new StartWindow();
-		WordBank wordBank = new WordBank();
-		while (response == 0)
-		{
-			Thread.sleep(100);
-		}
-		new MainWindow(wordBank.getNewWord(response));
+		boolean run = true;
+		
+//		while (run) {
+			StartWindow start = new StartWindow();
+			WordBank wordBank = new WordBank();
+			while (response == 0)
+			{
+				Thread.sleep(100);
+			}
+			start.dispose();
+			new MainWindow(wordBank.getNewWord(response));
+//		}
 	}
 }
