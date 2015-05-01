@@ -117,9 +117,4 @@ public class MainWindow extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
-	public static void main(String[] args) {
-		WordBank wordBank = new WordBank();
-		new MainWindow(wordBank.getNewWord(3));
-	}
 }
