@@ -1,6 +1,9 @@
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * A framework for storing lists of words and retrieving words based on length
@@ -17,9 +20,9 @@ public class WordBank {
 	private ArrayList<String> eightLetters;
 	private Random rand;
 	
-	public WordBank()
+	public WordBank() throws FileNotFoundException
 	{
-		rand = new Random(647);
+		rand = new Random();
 		
 		threeLetters = new ArrayList<String>();
 		fourLetters = new ArrayList<String>();
@@ -28,43 +31,7 @@ public class WordBank {
 		sevenLetters = new ArrayList<String>();
 		eightLetters = new ArrayList<String>();
 		
-		// Some stock words to begin with; requires expansion or loading from a file
-		threeLetters.add("cat");
-		threeLetters.add("dog");
-		threeLetters.add("toe");
-		threeLetters.add("tap");
-		threeLetters.add("bow");
-		threeLetters.add("you");
-		fourLetters.add("frog");
-		fourLetters.add("card");
-		fourLetters.add("tape");
-		fourLetters.add("ball");
-		fourLetters.add("high");
-		fourLetters.add("loud");
-		fiveLetters.add("oxide");
-		fiveLetters.add("knife");
-		fiveLetters.add("crazy");
-		fiveLetters.add("whale");
-		fiveLetters.add("watch");
-		fiveLetters.add("chair");
-		sixLetters.add("jacket");
-		sixLetters.add("gopher");
-		sixLetters.add("shroud");
-		sixLetters.add("bucket");
-		sixLetters.add("window");
-		sixLetters.add("finger");
-		sevenLetters.add("speaker");
-		sevenLetters.add("picture");
-		sevenLetters.add("platter");
-		sevenLetters.add("sweater");
-		sevenLetters.add("handbag");
-		sevenLetters.add("skyfall");
-		eightLetters.add("trousers");
-		eightLetters.add("envelope");
-		eightLetters.add("computer");
-		eightLetters.add("cylinder");
-		eightLetters.add("shoelace");
-		eightLetters.add("mechanic");
+		loadWords("wordlists.txt");
 	}
 	
 	/**
@@ -88,5 +55,43 @@ public class WordBank {
 			return eightLetters.get(rand.nextInt(eightLetters.size()));
 		else
 			return "";
+	}
+	/**
+	 * Framework to pull words from file
+	 * @param input the name of the file to load from
+	 * @throws FileNotFoundException
+	 */
+	public void loadWords(String input) throws FileNotFoundException
+	{
+		File inputFile = new File(input);
+		Scanner in = new Scanner(inputFile);
+		
+		while ( in.hasNext() )
+			storeWord( in.next() );
+		
+		in.close();		
+	}
+	/**
+	 * Loads a word into the word banks. Automatically sorts by word length
+	 * @param word the word to load
+	 */
+	public void storeWord(String word)
+	{
+		int length = word.length();
+		
+		if (length == 3)
+			threeLetters.add(word);
+		else if (length == 4)
+			fourLetters.add(word);
+		else if (length == 5)
+			fiveLetters.add(word);
+		else if (length == 6)
+			sixLetters.add(word);
+		else if (length == 7)
+			sevenLetters.add(word);
+		else if (length == 8)
+			eightLetters.add(word);
+		else
+			System.out.println("Word is wrong size");
 	}
 }
