@@ -15,10 +15,13 @@ public class MainWindow extends JFrame {
 	private String wrongGuesses;
 	private String word;
 	private String visible;
+	private String lettersRemaining;
 
 	public MainWindow(String toGuess) {
 		remainingGuesses = 10;
 		wrongGuesses = "";
+		lettersRemaining = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+		
 		word = toGuess;
 
 		visible = "";
@@ -30,16 +33,18 @@ public class MainWindow extends JFrame {
 		JPanel corePanel = new JPanel();
 		corePanel.setLayout(new BorderLayout());
 		
-		final JLabel status = new JLabel("You have "+remainingGuesses+" remaining", SwingConstants.CENTER);
-		final JLabel wrong = new JLabel("Wrong guesses so far: "+wrongGuesses);
+		final JLabel status = new JLabel("You have " + remainingGuesses + " guesses remaining", SwingConstants.CENTER);
+		final JLabel wrong = new JLabel("Wrong guesses so far: " + wrongGuesses);
+		final JLabel lettersRemainingOut =  new JLabel("Letters remaining so far: " + lettersRemaining);
 		final JLabel visibleLabel = new JLabel(visible, SwingConstants.CENTER);
 		final JTextField input = new JTextField(); 
 		
-		JPanel southPanel = new JPanel(new GridLayout(4, 1));
+		JPanel southPanel = new JPanel(new GridLayout(5, 1));
 		southPanel.add(status);
 		southPanel.add(visibleLabel);
 		southPanel.add(input);
 		southPanel.add(wrong);
+		southPanel.add(lettersRemainingOut);
 		
 		corePanel.add(southPanel, BorderLayout.SOUTH);
 		
@@ -55,9 +60,13 @@ public class MainWindow extends JFrame {
 				
 				String text = input.getText();
 				
+				
 				if(text.length()  == 1 && text.matches("[a-z]")) {
 					
 					boolean guessFound = false;
+					
+					lettersRemaining = lettersRemaining.replace(text.charAt(0), ' ');
+					lettersRemainingOut.setText("Letters remaining so far: " + lettersRemaining);
 					
 					for(int i = 0; i < word.length(); ++i) {
 						if(text.charAt(0) == word.charAt(i)) {
